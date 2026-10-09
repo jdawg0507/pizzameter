@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaMeter // NASDAQ-100 Late-Night Busyness Anomaly Engine</title>
+  <meta name="description" content="Quantitative alternative data platform tracking late-night foot traffic at pizzerias near NASDAQ-100 corporate headquarters using FINOS FDC3 and CDM standards.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/leaflet.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="top-header">
+    <div class="brand-section">
+      <div class="logo-badge cyber-chamfer-sm">🍕</div>
+      <div class="brand-text">
+        <h1 class="cyber-glitch-title">
+          PIZZA<span class="highlight-neon">METER</span>
+          <span class="sub-sys-badge cyber-chamfer-sm">SYS.0xQUANT</span>
+        </h1>
+        <div class="brand-subtitle">
+          <span class="cmd-prompt">&gt;</span> NASDAQ-100 HQ SURVEILLANCE // PENTAGON PIZZA INDEX<span class="terminal-cursor">█</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-status-bar">
+      <div class="status-pill cyber-chamfer-sm" id="ws_status_pill">
+        <span class="pulse-dot" id="ws_pulse_dot"></span>
+        <span id="ws_status_text">CONNECTING FDC3 BUS...</span>
+      </div>
+      <div class="status-pill cyber-cdm cyber-chamfer-sm">
+        <span style="color: var(--accent-cyan);">FINOS CDM 5.0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Metrics Bar -->
+  <section class="metrics-banner" aria-label="Key Performance Metrics">
+    <div class="metric-card cyber-chamfer-sm">
+      <div class="metric-header-row">
+        <span class="metric-label">MONITORED HQS</span>
+        <span class="metric-tag">[// 01]</span>
+      </div>
+      <span class="metric-value cyan" id="metric_total_hqs">--</span>
+    </div>
+    <div class="metric-card cyber-chamfer-sm">
+      <div class="metric-header-row">
+        <span class="metric-label">ACTIVE ANOMALIES (Z ≥ 2.2)</span>
+        <span class="metric-tag">[// 02]</span>
+      </div>
+      <span class="metric-value green" id="metric_active_anomalies">0</span>
+    </div>
+    <div class="metric-card cyber-chamfer-sm">
+      <div class="metric-header-row">
+        <span class="metric-label">CLUSTER Z MEAN</span>
+        <span class="metric-tag">[// 03]</span>
+      </div>
+      <span class="metric-value" id="metric_mean_zscore">0.00</span>
+    </div>
+    <div class="metric-card cyber-chamfer-sm">
+      <div class="metric-header-row">
+        <span class="metric-label">EXECUTION INTENT</span>
+        <span class="metric-tag">[// 04]</span>
+      </div>
+      <span class="metric-value amber" style="font-size: 1.15rem;">ORB BRACKET / STRADDLE</span>
+    </div>
+  </section>
+
+  <!-- Main Trading Dashboard -->
+  <main class="main-dashboard">
+    <!-- Left Column: Perspective Blotter Table -->
+    <div class="panel cyber-chamfer">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>// HQ BUSYNESS BLOTTER</span>
+          <span class="badge-finos cyber-chamfer-sm">FINOS PERSPECTIVE</span>
+        </div>
+        <div class="input-wrap">
+          <span class="input-prefix">&gt;</span>
+          <input type="text" id="search_ticker_filter" class="action-input cyber-chamfer-sm" placeholder="FILTER_TICKER..." style="width: 150px;">
+        </div>
+      </div>
+
+      <!-- Quick Interactive Spike Simulation -->
+      <div class="action-panel">
+        <span class="action-panel-label">&gt; SURGE_INJECTION:</span>
+        <div class="input-wrap">
+          <span class="input-prefix">&gt;</span>
+          <input type="text" id="input_target_ticker" class="action-input cyber-chamfer-sm" value="NVDA" placeholder="TICKER">
+        </div>
+        <button id="btn_simulate_spike" class="btn-trigger cyber-chamfer-sm">
+          <span>⚡</span> INJECT PIZZA SURGE
+        </button>
+      </div>
+
+      <!-- Blotter Table Container -->
+      <div class="grid-container">
+        <div class="blotter-table-wrap">
+          <table class="blotter-table" id="blotter_table">
+            <thead>
+              <tr>
+                <th>TICKER</th>
+                <th>COMPANY</th>
+                <th>SECTOR</th>
+                <th>BASELINE</th>
+                <th>LIVE FOOT TRAFFIC</th>
+                <th>CLUSTER Z</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody id="blotter_table_body">
+              <tr>
+                <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 45px; font-family: var(--font-label); letter-spacing: 0.1em;">
+                  [SYS_WAIT] AWAITING REAL-TIME TELEMETRY FEED...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Synchronized Visualizer (Chart + Radar Map) & Real-Time Audit Logs -->
+    <div class="side-panel">
+      <!-- Visualizer Panel: TradingView Chart & Leaflet HQ/Pizza Map -->
+      <div class="panel chart-card cyber-chamfer">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span id="visualizer_label">// VISUALIZER:</span>
+            <span id="active_chart_ticker" style="color: var(--accent-cyan); font-family: var(--font-head); font-weight: 700; margin-left: 4px;">NVDA</span>
+          </div>
+
+          <div class="visualizer-header-controls">
+            <!-- View Mode Switcher -->
+            <div class="tab-group cyber-chamfer-sm" id="view_tabs">
+              <button id="tab_chart_view" class="tab-btn cyber-chamfer-sm" title="Show TradingView Technical Chart">📈 CHART</button>
+              <button id="tab_map_view" class="tab-btn active cyber-chamfer-sm" title="Show HQ & 1-Mile Pizzeria Radar Map">🗺️ RADAR MAP</button>
+              <button id="tab_split_view" class="tab-btn cyber-chamfer-sm" title="Side-by-Side Chart and Radar Map">🔀 SPLIT</button>
+            </div>
+
+            <!-- Map-Specific Controls -->
+            <div id="map_controls_bar" style="display: flex; gap: 4px;">
+              <button id="btn_map_overview" class="mini-btn cyber-chamfer-sm" title="View All 120 NASDAQ-100 Headquarters">ALL HQS</button>
+              <button id="btn_map_recenter" class="mini-btn cyber-chamfer-sm" title="Center on Active HQ Campus">RECENTER</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visualizer Container hosting Chart and/or Map -->
+        <div class="visualizer-body view-map" id="visualizer_wrapper">
+          <div class="chart-container" id="tv_chart_container">
+            <!-- TradingView Widget mounts here -->
+          </div>
+          <div class="map-container" id="map_container">
+            <!-- Leaflet HQ & Pizzeria Radar Map mounts here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Audit Stream & CDM Dispatch Log -->
+      <div class="panel cyber-chamfer" style="flex: 1;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>// FINOS CDM & FDC3 TELEMETRY STREAM</span>
+          </div>
+          <span style="font-size: 0.72rem; color: var(--accent-green); font-family: var(--font-label); letter-spacing: 0.15em;">[LIVE STREAM]</span>
+        </div>
+        <div class="log-stream" id="event_log_stream">
+          <div class="log-entry">
+            <span class="log-time">[BOOT]</span> <span class="log-ticker">[SYSTEM]</span> Quantum surveillance daemon operational. Monitoring late-night foot traffic.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="src/leaflet.js"></script>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

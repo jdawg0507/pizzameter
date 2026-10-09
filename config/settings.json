@@ -1,0 +1,39 @@
+{
+  "system": {
+    "name": "PizzaMeter",
+    "version": "1.0.0",
+    "db_path": "data/pizzameter.db",
+    "hq_catalog_path": "config/nasdaq100_hqs.json"
+  },
+  "ingestion": {
+    "overpass_url": "https://overpass-api.de/api/interpreter",
+    "radius_meters": 1600,
+    "max_venues_per_hq": 4,
+    "request_timeout_sec": 30
+  },
+  "anomaly": {
+    "min_z_score_trigger": 2.2,
+    "consecutive_intervals_required": 2,
+    "min_baseline_sigma": 7.5,
+    "active_hours_local_start": 18,
+    "active_hours_local_end": 2
+  },
+  "finos": {
+    "ws_host": "127.0.0.1",
+    "ws_port": 8765,
+    "default_intent": "ViewInstrument"
+  },
+  "execution": {
+    "alpaca": {
+      "enabled": false,
+      "base_url": "https://paper-api.alpaca.markets",
+      "api_key_id": "YOUR_ALPACA_PAPER_KEY_ID",
+      "api_secret_key": "YOUR_ALPACA_PAPER_SECRET_KEY"
+    },
+    "risk": {
+      "max_allocation_percent": 0.02,
+      "ticker_cooldown_hours": 168,
+      "max_daily_trades": 5
+    }
+  }
+}

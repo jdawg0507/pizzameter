@@ -1,0 +1,1082 @@
+[
+  {
+    "ticker": "MSFT",
+    "name": "Microsoft Corporation",
+    "sector": "Technology",
+    "hq_address": "One Microsoft Way, Redmond, WA 98052",
+    "latitude": 47.6423,
+    "longitude": -122.1366,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "AAPL",
+    "name": "Apple Inc.",
+    "sector": "Technology",
+    "hq_address": "1 Apple Park Way, Cupertino, CA 95014",
+    "latitude": 37.3346,
+    "longitude": -122.009,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "sector": "Semiconductors",
+    "hq_address": "2788 San Tomas Expy, Santa Clara, CA 95051",
+    "latitude": 37.3708,
+    "longitude": -121.9675,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "AMZN",
+    "name": "Amazon.com, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "410 Terry Ave N, Seattle, WA 98109",
+    "latitude": 47.6224,
+    "longitude": -122.3364,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "GOOGL",
+    "name": "Alphabet Inc. (Class A)",
+    "sector": "Communication Services",
+    "hq_address": "1600 Amphitheatre Pkwy, Mountain View, CA 94043",
+    "latitude": 37.422,
+    "longitude": -122.0841,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "GOOG",
+    "name": "Alphabet Inc. (Class C)",
+    "sector": "Communication Services",
+    "hq_address": "1600 Amphitheatre Pkwy, Mountain View, CA 94043",
+    "latitude": 37.422,
+    "longitude": -122.0841,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "META",
+    "name": "Meta Platforms, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "1 Hacker Way, Menlo Park, CA 94025",
+    "latitude": 37.4848,
+    "longitude": -122.1484,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "TSLA",
+    "name": "Tesla, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "1 Tesla Rd, Austin, TX 78725",
+    "latitude": 30.2223,
+    "longitude": -97.6171,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "AVGO",
+    "name": "Broadcom Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "3421 Hillview Ave, Palo Alto, CA 94304",
+    "latitude": 37.4048,
+    "longitude": -122.1478,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "COST",
+    "name": "Costco Wholesale Corporation",
+    "sector": "Consumer Staples",
+    "hq_address": "999 Lake Dr, Issaquah, WA 98027",
+    "latitude": 47.5451,
+    "longitude": -122.0622,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "PEP",
+    "name": "PepsiCo, Inc.",
+    "sector": "Consumer Staples",
+    "hq_address": "700 Anderson Hill Rd, Purchase, NY 10577",
+    "latitude": 41.0425,
+    "longitude": -73.6974,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "NFLX",
+    "name": "Netflix, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "100 Winchester Cir, Los Gatos, CA 95032",
+    "latitude": 37.2577,
+    "longitude": -121.962,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "AMD",
+    "name": "Advanced Micro Devices, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "2485 Augustine Dr, Santa Clara, CA 95054",
+    "latitude": 37.3828,
+    "longitude": -121.9688,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "LIN",
+    "name": "Linde plc",
+    "sector": "Materials",
+    "hq_address": "10 Riverview Dr, Danbury, CT 06810",
+    "latitude": 41.3948,
+    "longitude": -73.454,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "TMUS",
+    "name": "T-Mobile US, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "12920 SE 38th St, Bellevue, WA 98006",
+    "latitude": 47.5752,
+    "longitude": -122.1678,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "ADBE",
+    "name": "Adobe Inc.",
+    "sector": "Technology",
+    "hq_address": "345 Park Ave, San Jose, CA 95110",
+    "latitude": 37.3308,
+    "longitude": -121.8941,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "CSCO",
+    "name": "Cisco Systems, Inc.",
+    "sector": "Technology",
+    "hq_address": "170 W Tasman Dr, San Jose, CA 95134",
+    "latitude": 37.4162,
+    "longitude": -121.9515,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "QCOM",
+    "name": "Qualcomm Incorporated",
+    "sector": "Semiconductors",
+    "hq_address": "5775 Morehouse Dr, San Diego, CA 92121",
+    "latitude": 32.8998,
+    "longitude": -117.197,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "INTC",
+    "name": "Intel Corporation",
+    "sector": "Semiconductors",
+    "hq_address": "2200 Mission College Blvd, Santa Clara, CA 95054",
+    "latitude": 37.3875,
+    "longitude": -121.9636,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "TXN",
+    "name": "Texas Instruments Incorporated",
+    "sector": "Semiconductors",
+    "hq_address": "12500 TI Blvd, Dallas, TX 75243",
+    "latitude": 32.9234,
+    "longitude": -96.7588,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "AMGN",
+    "name": "Amgen Inc.",
+    "sector": "Healthcare",
+    "hq_address": "One Amgen Center Dr, Thousand Oaks, CA 91320",
+    "latitude": 34.1953,
+    "longitude": -118.9189,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "INTU",
+    "name": "Intuit Inc.",
+    "sector": "Technology",
+    "hq_address": "2700 Coast Ave, Mountain View, CA 94043",
+    "latitude": 37.429,
+    "longitude": -122.097,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "ISRG",
+    "name": "Intuitive Surgical, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "1020 Kifer Rd, Sunnyvale, CA 94086",
+    "latitude": 37.3687,
+    "longitude": -122.0134,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "CMCSA",
+    "name": "Comcast Corporation",
+    "sector": "Communication Services",
+    "hq_address": "1701 John F Kennedy Blvd, Philadelphia, PA 19103",
+    "latitude": 39.9549,
+    "longitude": -75.1687,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "AMAT",
+    "name": "Applied Materials, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "3050 Bowers Ave, Santa Clara, CA 95054",
+    "latitude": 37.3752,
+    "longitude": -121.9774,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "HON",
+    "name": "Honeywell International Inc.",
+    "sector": "Industrials",
+    "hq_address": "855 S Mint St, Charlotte, NC 28202",
+    "latitude": 35.2234,
+    "longitude": -80.8522,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "BKNG",
+    "name": "Booking Holdings Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "800 Connecticut Ave, Norwalk, CT 06854",
+    "latitude": 41.1023,
+    "longitude": -73.4357,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "VRTX",
+    "name": "Vertex Pharmaceuticals Incorporated",
+    "sector": "Healthcare",
+    "hq_address": "50 Northern Ave, Boston, MA 02210",
+    "latitude": 42.3533,
+    "longitude": -71.0446,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "SBUX",
+    "name": "Starbucks Corporation",
+    "sector": "Consumer Discretionary",
+    "hq_address": "2401 Utah Ave S, Seattle, WA 98134",
+    "latitude": 47.5818,
+    "longitude": -122.3353,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "PANW",
+    "name": "Palo Alto Networks, Inc.",
+    "sector": "Technology",
+    "hq_address": "3000 Tannery Way, Santa Clara, CA 95054",
+    "latitude": 37.4005,
+    "longitude": -121.9686,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "MDLZ",
+    "name": "Mondelez International, Inc.",
+    "sector": "Consumer Staples",
+    "hq_address": "905 W Fulton Market, Chicago, IL 60607",
+    "latitude": 41.8868,
+    "longitude": -87.6508,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "REGN",
+    "name": "Regeneron Pharmaceuticals, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "777 Old Saw Mill River Rd, Tarrytown, NY 10591",
+    "latitude": 41.0827,
+    "longitude": -73.8188,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "ADP",
+    "name": "Automatic Data Processing, Inc.",
+    "sector": "Industrials",
+    "hq_address": "1 ADP Blvd, Roseland, NJ 07068",
+    "latitude": 40.8197,
+    "longitude": -74.3168,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "LRCX",
+    "name": "Lam Research Corporation",
+    "sector": "Semiconductors",
+    "hq_address": "4650 Cushing Pkwy, Fremont, CA 94538",
+    "latitude": 37.4877,
+    "longitude": -121.9566,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "GILD",
+    "name": "Gilead Sciences, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "333 Lakeside Dr, Foster City, CA 94404",
+    "latitude": 37.5583,
+    "longitude": -122.2741,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "ADI",
+    "name": "Analog Devices, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "One Analog Way, Wilmington, MA 01887",
+    "latitude": 42.5482,
+    "longitude": -71.1648,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "MU",
+    "name": "Micron Technology, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "8000 S Federal Way, Boise, ID 83716",
+    "latitude": 43.5303,
+    "longitude": -116.1481,
+    "timezone": "America/Boise"
+  },
+  {
+    "ticker": "MELI",
+    "name": "MercadoLibre, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "701 Brickell Ave, Miami, FL 33131",
+    "latitude": 25.7663,
+    "longitude": -80.1906,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "KLAC",
+    "name": "KLA Corporation",
+    "sector": "Semiconductors",
+    "hq_address": "One Technology Dr, Milpitas, CA 95035",
+    "latitude": 37.4332,
+    "longitude": -121.9168,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "PYPL",
+    "name": "PayPal Holdings, Inc.",
+    "sector": "Financials",
+    "hq_address": "2211 N 1st St, San Jose, CA 95131",
+    "latitude": 37.3762,
+    "longitude": -121.9218,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "SNPS",
+    "name": "Synopsys, Inc.",
+    "sector": "Technology",
+    "hq_address": "675 Almanor Ave, Sunnyvale, CA 94085",
+    "latitude": 37.3879,
+    "longitude": -122.0229,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "CDNS",
+    "name": "Cadence Design Systems, Inc.",
+    "sector": "Technology",
+    "hq_address": "2655 Seely Ave, San Jose, CA 95134",
+    "latitude": 37.4042,
+    "longitude": -121.9198,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "NXPI",
+    "name": "NXP Semiconductors N.V.",
+    "sector": "Semiconductors",
+    "hq_address": "6501 William Cannon Dr W, Austin, TX 78735",
+    "latitude": 30.2289,
+    "longitude": -97.8687,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "MAR",
+    "name": "Marriott International, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "7750 Wisconsin Ave, Bethesda, MD 20814",
+    "latitude": 38.9869,
+    "longitude": -77.0945,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "CSX",
+    "name": "CSX Corporation",
+    "sector": "Industrials",
+    "hq_address": "500 Water St, Jacksonville, FL 32202",
+    "latitude": 30.3242,
+    "longitude": -81.6631,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "CRWD",
+    "name": "CrowdStrike Holdings, Inc.",
+    "sector": "Technology",
+    "hq_address": "206 E 9th St, Austin, TX 78701",
+    "latitude": 30.2709,
+    "longitude": -97.741,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "ORLY",
+    "name": "O'Reilly Automotive, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "233 S Patterson Ave, Springfield, MO 65802",
+    "latitude": 37.2079,
+    "longitude": -93.2842,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "CTAS",
+    "name": "Cintas Corporation",
+    "sector": "Industrials",
+    "hq_address": "6800 Cintas Blvd, Mason, OH 45040",
+    "latitude": 39.3498,
+    "longitude": -84.3211,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "ABNB",
+    "name": "Airbnb, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "888 Brannan St, San Francisco, CA 94103",
+    "latitude": 37.7718,
+    "longitude": -122.4053,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "CEG",
+    "name": "Constellation Energy Corporation",
+    "sector": "Utilities",
+    "hq_address": "1310 Point St, Baltimore, MD 21231",
+    "latitude": 39.2818,
+    "longitude": -76.5947,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "MNST",
+    "name": "Monster Beverage Corporation",
+    "sector": "Consumer Staples",
+    "hq_address": "1 Monster Way, Corona, CA 92879",
+    "latitude": 33.8837,
+    "longitude": -117.5255,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "PCAR",
+    "name": "PACCAR Inc",
+    "sector": "Industrials",
+    "hq_address": "777 106th Ave NE, Bellevue, WA 98004",
+    "latitude": 47.6174,
+    "longitude": -122.1994,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "FTNT",
+    "name": "Fortinet, Inc.",
+    "sector": "Technology",
+    "hq_address": "899 Kifer Rd, Sunnyvale, CA 94086",
+    "latitude": 37.3713,
+    "longitude": -122.0152,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "MCHP",
+    "name": "Microchip Technology Incorporated",
+    "sector": "Semiconductors",
+    "hq_address": "2355 W Chandler Blvd, Chandler, AZ 85224",
+    "latitude": 33.3053,
+    "longitude": -111.8841,
+    "timezone": "America/Phoenix"
+  },
+  {
+    "ticker": "CPRT",
+    "name": "Copart, Inc.",
+    "sector": "Industrials",
+    "hq_address": "14185 Dallas Pkwy, Dallas, TX 75254",
+    "latitude": 32.9408,
+    "longitude": -96.8228,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "KDP",
+    "name": "Keurig Dr Pepper Inc.",
+    "sector": "Consumer Staples",
+    "hq_address": "53 South Ave, Burlington, MA 01803",
+    "latitude": 42.4938,
+    "longitude": -71.2064,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "DXCM",
+    "name": "DexCom, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "6340 Sequence Dr, San Diego, CA 92121",
+    "latitude": 32.8829,
+    "longitude": -117.1868,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "PAYX",
+    "name": "Paychex, Inc.",
+    "sector": "Industrials",
+    "hq_address": "911 Panorama Trail S, Rochester, NY 14625",
+    "latitude": 43.1362,
+    "longitude": -77.5029,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "ROST",
+    "name": "Ross Stores, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "5130 Hacienda Dr, Dublin, CA 94568",
+    "latitude": 37.7058,
+    "longitude": -121.8906,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "KHC",
+    "name": "The Kraft Heinz Company",
+    "sector": "Consumer Staples",
+    "hq_address": "200 E Randolph St, Chicago, IL 60601",
+    "latitude": 41.8853,
+    "longitude": -87.6215,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "FAST",
+    "name": "Fastenal Company",
+    "sector": "Industrials",
+    "hq_address": "2001 Theurer Blvd, Winona, MN 55987",
+    "latitude": 44.0298,
+    "longitude": -91.6882,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "LULU",
+    "name": "Lululemon Athletica Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "1818 Cornwall Ave, Vancouver, BC V6J 1C7",
+    "latitude": 49.2718,
+    "longitude": -123.1465,
+    "timezone": "America/Vancouver"
+  },
+  {
+    "ticker": "CHTR",
+    "name": "Charter Communications, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "400 Washington Blvd, Stamford, CT 06902",
+    "latitude": 41.0475,
+    "longitude": -73.5414,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "EXC",
+    "name": "Exelon Corporation",
+    "sector": "Utilities",
+    "hq_address": "10 S Dearborn St, Chicago, IL 60603",
+    "latitude": 41.8817,
+    "longitude": -87.6298,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "ODFL",
+    "name": "Old Dominion Freight Line, Inc.",
+    "sector": "Industrials",
+    "hq_address": "500 Old Dominion Way, Thomasville, NC 27360",
+    "latitude": 35.8827,
+    "longitude": -80.082,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "IDXX",
+    "name": "IDEXX Laboratories, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "One IDEXX Dr, Westbrook, ME 04092",
+    "latitude": 43.6874,
+    "longitude": -70.3663,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "BIIB",
+    "name": "Biogen Inc.",
+    "sector": "Healthcare",
+    "hq_address": "225 Binney St, Cambridge, MA 02142",
+    "latitude": 42.3653,
+    "longitude": -71.0886,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "VRSK",
+    "name": "Verisk Analytics, Inc.",
+    "sector": "Industrials",
+    "hq_address": "545 Washington Blvd, Jersey City, NJ 07310",
+    "latitude": 40.7285,
+    "longitude": -74.0357,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "DDOG",
+    "name": "Datadog, Inc.",
+    "sector": "Technology",
+    "hq_address": "620 8th Ave, New York, NY 10018",
+    "latitude": 40.7562,
+    "longitude": -73.9903,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "TEAM",
+    "name": "Atlassian Corporation",
+    "sector": "Technology",
+    "hq_address": "303 2nd St, San Francisco, CA 94107",
+    "latitude": 37.7846,
+    "longitude": -122.3972,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "ZS",
+    "name": "Zscaler, Inc.",
+    "sector": "Technology",
+    "hq_address": "120 Holger Way, San Jose, CA 95134",
+    "latitude": 37.4248,
+    "longitude": -121.9442,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "ANSS",
+    "name": "ANSYS, Inc.",
+    "sector": "Technology",
+    "hq_address": "2600 ANSYS Dr, Canonsburg, PA 15317",
+    "latitude": 40.2974,
+    "longitude": -80.1916,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "GEHC",
+    "name": "GE HealthCare Technologies Inc.",
+    "sector": "Healthcare",
+    "hq_address": "500 W Monroe St, Chicago, IL 60661",
+    "latitude": 41.8808,
+    "longitude": -87.6402,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "WBD",
+    "name": "Warner Bros. Discovery, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "230 Park Ave S, New York, NY 10003",
+    "latitude": 40.7378,
+    "longitude": -73.9877,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "ILMN",
+    "name": "Illumina, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "5200 Illumina Way, San Diego, CA 92122",
+    "latitude": 32.8719,
+    "longitude": -117.1895,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "SIRI",
+    "name": "Sirius XM Holdings Inc.",
+    "sector": "Communication Services",
+    "hq_address": "1221 Avenue of the Americas, New York, NY 10020",
+    "latitude": 40.7592,
+    "longitude": -73.9822,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "PDD",
+    "name": "PDD Holdings Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "25 St Stephen's Green, Dublin 2, Ireland",
+    "latitude": 53.3382,
+    "longitude": -6.2591,
+    "timezone": "Europe/Dublin"
+  },
+  {
+    "ticker": "WDAY",
+    "name": "Workday, Inc.",
+    "sector": "Technology",
+    "hq_address": "6110 Stoneridge Mall Rd, Pleasanton, CA 94588",
+    "latitude": 37.6967,
+    "longitude": -121.9261,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "MRVL",
+    "name": "Marvell Technology, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "5488 Patrick Henry Dr, Santa Clara, CA 95054",
+    "latitude": 37.4093,
+    "longitude": -121.9786,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "DLTR",
+    "name": "Dollar Tree, Inc.",
+    "sector": "Consumer Staples",
+    "hq_address": "500 Volvo Pkwy, Chesapeake, VA 23320",
+    "latitude": 36.7725,
+    "longitude": -76.2427,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "EA",
+    "name": "Electronic Arts Inc.",
+    "sector": "Communication Services",
+    "hq_address": "209 Redwood Shores Pkwy, Redwood City, CA 94065",
+    "latitude": 37.5332,
+    "longitude": -122.2514,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "CTSH",
+    "name": "Cognizant Technology Solutions Corporation",
+    "sector": "Technology",
+    "hq_address": "300 Frank W Burr Blvd, Teaneck, NJ 07666",
+    "latitude": 40.8762,
+    "longitude": -74.0076,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "BKR",
+    "name": "Baker Hughes Company",
+    "sector": "Energy",
+    "hq_address": "575 N Dairy Ashford Rd, Houston, TX 77079",
+    "latitude": 29.7828,
+    "longitude": -95.6033,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "GFS",
+    "name": "GLOBALFOUNDRIES Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "400 Stone Break Rd Ext, Malta, NY 12020",
+    "latitude": 42.9734,
+    "longitude": -73.7483,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "ON",
+    "name": "ON Semiconductor Corporation",
+    "sector": "Semiconductors",
+    "hq_address": "5701 N Pima Rd, Scottsdale, AZ 85250",
+    "latitude": 33.5186,
+    "longitude": -111.8906,
+    "timezone": "America/Phoenix"
+  },
+  {
+    "ticker": "CDW",
+    "name": "CDW Corporation",
+    "sector": "Technology",
+    "hq_address": "200 N Milwaukee Ave, Vernon Hills, IL 60061",
+    "latitude": 42.2285,
+    "longitude": -87.9497,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "TTWO",
+    "name": "Take-Two Interactive Software, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "110 W 44th St, New York, NY 10036",
+    "latitude": 40.7565,
+    "longitude": -73.9843,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "WBA",
+    "name": "Walgreens Boots Alliance, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "108 Wilmot Rd, Deerfield, IL 60015",
+    "latitude": 42.1558,
+    "longitude": -87.8765,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "FSLR",
+    "name": "First Solar, Inc.",
+    "sector": "Technology",
+    "hq_address": "350 W Washington St, Tempe, AZ 85281",
+    "latitude": 33.4353,
+    "longitude": -111.9442,
+    "timezone": "America/Phoenix"
+  },
+  {
+    "ticker": "MDB",
+    "name": "MongoDB, Inc.",
+    "sector": "Technology",
+    "hq_address": "1633 Broadway, New York, NY 10019",
+    "latitude": 40.7619,
+    "longitude": -73.9848,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "SMCI",
+    "name": "Super Micro Computer, Inc.",
+    "sector": "Technology",
+    "hq_address": "980 Rock Ave, San Jose, CA 95131",
+    "latitude": 37.3804,
+    "longitude": -121.8929,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "ARM",
+    "name": "Arm Holdings plc",
+    "sector": "Semiconductors",
+    "hq_address": "110 Fulbourn Rd, Cambridge CB1 9NJ, UK",
+    "latitude": 52.1793,
+    "longitude": 0.1784,
+    "timezone": "Europe/London"
+  },
+  {
+    "ticker": "AXON",
+    "name": "Axon Enterprise, Inc.",
+    "sector": "Industrials",
+    "hq_address": "17800 N 85th St, Scottsdale, AZ 85255",
+    "latitude": 33.6475,
+    "longitude": -111.8967,
+    "timezone": "America/Phoenix"
+  },
+  {
+    "ticker": "APP",
+    "name": "AppLovin Corporation",
+    "sector": "Technology",
+    "hq_address": "1100 Page Mill Rd, Palo Alto, CA 94304",
+    "latitude": 37.4146,
+    "longitude": -122.1469,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "PLTR",
+    "name": "Palantir Technologies Inc.",
+    "sector": "Technology",
+    "hq_address": "1200 17th St, Denver, CO 80202",
+    "latitude": 39.7503,
+    "longitude": -104.9961,
+    "timezone": "America/Denver"
+  },
+  {
+    "ticker": "TTD",
+    "name": "The Trade Desk, Inc.",
+    "sector": "Technology",
+    "hq_address": "42 N Chestnut St, Ventura, CA 93001",
+    "latitude": 34.2815,
+    "longitude": -119.2961,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "CSGP",
+    "name": "CoStar Group, Inc.",
+    "sector": "Real Estate",
+    "hq_address": "1331 L St NW, Washington, DC 20005",
+    "latitude": 38.9038,
+    "longitude": -77.0311,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "EXPE",
+    "name": "Expedia Group, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "1111 Expedia Group Way W, Seattle, WA 98119",
+    "latitude": 47.6309,
+    "longitude": -122.3831,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "FANG",
+    "name": "Diamondback Energy, Inc.",
+    "sector": "Energy",
+    "hq_address": "500 W Texas Ave, Midland, TX 79701",
+    "latitude": 31.9974,
+    "longitude": -102.0779,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "CCEP",
+    "name": "Coca-Cola Europacific Partners plc",
+    "sector": "Consumer Staples",
+    "hq_address": "Pemberton House, Bakers Rd, Uxbridge UB8 1EZ, UK",
+    "latitude": 51.5471,
+    "longitude": -0.4795,
+    "timezone": "Europe/London"
+  },
+  {
+    "ticker": "AEP",
+    "name": "American Electric Power Company, Inc.",
+    "sector": "Utilities",
+    "hq_address": "1 Riverside Plaza, Columbus, OH 43215",
+    "latitude": 39.9634,
+    "longitude": -83.0063,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "XEL",
+    "name": "Xcel Energy Inc.",
+    "sector": "Utilities",
+    "hq_address": "414 Nicollet Mall, Minneapolis, MN 55401",
+    "latitude": 44.9796,
+    "longitude": -93.2687,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "ALNY",
+    "name": "Alnylam Pharmaceuticals, Inc.",
+    "sector": "Healthcare",
+    "hq_address": "675 W Kendall St, Cambridge, MA 02142",
+    "latitude": 42.3662,
+    "longitude": -71.0858,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "INCY",
+    "name": "Incyte Corporation",
+    "sector": "Healthcare",
+    "hq_address": "1801 Augustine Cut-Off, Wilmington, DE 19803",
+    "latitude": 39.7681,
+    "longitude": -75.5492,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "BMRN",
+    "name": "BioMarin Pharmaceutical Inc.",
+    "sector": "Healthcare",
+    "hq_address": "105 Digital Dr, Novato, CA 94949",
+    "latitude": 38.0832,
+    "longitude": -122.5489,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "PODD",
+    "name": "Insulet Corporation",
+    "sector": "Healthcare",
+    "hq_address": "100 Nagog Park, Acton, MA 01720",
+    "latitude": 42.5113,
+    "longitude": -71.4395,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "SWKS",
+    "name": "Skyworks Solutions, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "5260 California Ave, Irvine, CA 92617",
+    "latitude": 33.6443,
+    "longitude": -117.8427,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "QRVO",
+    "name": "Qorvo, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "7628 Thorndike Rd, Greensboro, NC 27409",
+    "latitude": 36.0841,
+    "longitude": -79.9573,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "ENPH",
+    "name": "Enphase Energy, Inc.",
+    "sector": "Technology",
+    "hq_address": "47281 Bayside Pkwy, Fremont, CA 94538",
+    "latitude": 37.4776,
+    "longitude": -121.9429,
+    "timezone": "America/Los_Angeles"
+  },
+  {
+    "ticker": "ZBRA",
+    "name": "Zebra Technologies Corporation",
+    "sector": "Technology",
+    "hq_address": "3 Overlook Point, Lincolnshire, IL 60069",
+    "latitude": 42.2036,
+    "longitude": -87.9153,
+    "timezone": "America/Chicago"
+  },
+  {
+    "ticker": "AKAM",
+    "name": "Akamai Technologies, Inc.",
+    "sector": "Technology",
+    "hq_address": "145 Broadway, Cambridge, MA 02142",
+    "latitude": 42.3644,
+    "longitude": -71.0881,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "TER",
+    "name": "Teradyne, Inc.",
+    "sector": "Semiconductors",
+    "hq_address": "600 Riverpark Dr, North Reading, MA 01864",
+    "latitude": 42.5934,
+    "longitude": -71.0883,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "GEN",
+    "name": "Gen Digital Inc.",
+    "sector": "Technology",
+    "hq_address": "60 E Rio Salado Pkwy, Tempe, AZ 85281",
+    "latitude": 33.4308,
+    "longitude": -111.9392,
+    "timezone": "America/Phoenix"
+  },
+  {
+    "ticker": "NTES",
+    "name": "NetEase, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "No. 599 Wangshang Rd, Binjiang District, Hangzhou 310052",
+    "latitude": 30.1872,
+    "longitude": 120.1912,
+    "timezone": "Asia/Shanghai"
+  },
+  {
+    "ticker": "BIDU",
+    "name": "Baidu, Inc.",
+    "sector": "Communication Services",
+    "hq_address": "Baidu Campus, No. 10 Shangdi 10th St, Beijing 100085",
+    "latitude": 40.0531,
+    "longitude": 116.3073,
+    "timezone": "Asia/Shanghai"
+  },
+  {
+    "ticker": "JD",
+    "name": "JD.com, Inc.",
+    "sector": "Consumer Discretionary",
+    "hq_address": "No. 18 Kechuang 11th St, Yizhuang, Beijing 101111",
+    "latitude": 39.7915,
+    "longitude": 116.5492,
+    "timezone": "Asia/Shanghai"
+  },
+  {
+    "ticker": "MBLY",
+    "name": "Mobileye Global Inc.",
+    "sector": "Technology",
+    "hq_address": "Hartom St 13, Jerusalem 9777513",
+    "latitude": 31.8028,
+    "longitude": 35.2158,
+    "timezone": "Asia/Jerusalem"
+  },
+  {
+    "ticker": "VTRS",
+    "name": "Viatris Inc.",
+    "sector": "Healthcare",
+    "hq_address": "1000 Mylan Blvd, Canonsburg, PA 15317",
+    "latitude": 40.2966,
+    "longitude": -80.1901,
+    "timezone": "America/New_York"
+  },
+  {
+    "ticker": "SEDG",
+    "name": "SolarEdge Technologies, Inc.",
+    "sector": "Technology",
+    "hq_address": "1 HaMada St, Herzliya 4673335",
+    "latitude": 32.1624,
+    "longitude": 34.8093,
+    "timezone": "Asia/Jerusalem"
+  },
+  {
+    "ticker": "LNT",
+    "name": "Alliant Energy Corporation",
+    "sector": "Utilities",
+    "hq_address": "4902 N Biltmore Ln, Madison, WI 53718",
+    "latitude": 43.1436,
+    "longitude": -89.2882,
+    "timezone": "America/Chicago"
+  }
+]
