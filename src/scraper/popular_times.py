@@ -1,14 +1,13 @@
 """Scraper and telemetry provider for venue foot traffic and busyness levels."""
 
 import math
-import random
 import logging
 from datetime import datetime
 from typing import Dict, Any, List, Optional
 import sqlite3
 
 from src.engine.models import BusynessReading
-from src.scraper.google_maps_client import GoogleMapsClient
+from src.scraper.foot_traffic_client import FootTrafficClient
 
 logger = logging.getLogger("PopularTimesScraper")
 
@@ -16,7 +15,8 @@ logger = logging.getLogger("PopularTimesScraper")
 class PopularTimesScraper:
     """
     Retrieves normal and live busyness metrics for monitored venues.
-    Supports real extraction interfaces and controlled scenario injections for testing.
+    Integrates commercial Foot Traffic APIs (BestTime / Outscraper) and a deterministic,
+    zero-RNG bimodal mathematical distribution model.
     """
 
     def __init__(
@@ -28,13 +28,13 @@ class PopularTimesScraper:
         # Active scenario overrides for targeted simulation: venue_id or ticker -> live_busyness
         self.simulated_surges: Dict[str, int] = {}
 
-        # Hybrid Google Maps Client
+        # Commercial Foot Traffic & Deterministic Client (BestTime / Outscraper)
         cfg = google_maps_config or {}
-        self.gmaps_client = GoogleMapsClient(
+        self.gmaps_client = FootTrafficClient(
+            provider=cfg.get("provider", "besttime"),
             api_key=cfg.get("api_key"),
-            cache_ttl_sec=cfg.get("cache_ttl_sec", 600),
-            request_timeout_sec=cfg.get("request_timeout_sec", 4.0),
-            rate_limit_delay_sec=cfg.get("rate_limit_delay_sec", 0.5),
+            cache_ttl_sec=cfg.get("cache_ttl_sec", 1800),
+            request_timeout_sec=cfg.get("request_timeout_sec", 8.0),
             enabled=cfg.get("enabled", True)
         )
         # Background refresh queue
@@ -50,7 +50,7 @@ class PopularTimesScraper:
         self.simulated_surges.clear()
 
     def queue_venue_for_refresh(self, venue_info: Dict[str, Any]):
-        """Queue a venue for non-blocking background Google Maps refresh."""
+        """Queue a venue for non-blocking background foot traffic refresh."""
         vid = venue_info.get("venue_id")
         if vid and vid not in self._queued_venue_ids and not self.gmaps_client.get_cached_reading(vid):
             self._queued_venue_ids.add(vid)
@@ -68,7 +68,7 @@ class PopularTimesScraper:
         return None
 
     def refresh_venue_gmaps(self, venue_info: Dict[str, Any]) -> Dict[str, Any]:
-        """Perform network ping for a specific venue and update cache (invoked in worker)."""
+        """Perform telemetry check for a specific venue and update cache (invoked in worker)."""
         return self.gmaps_client.ping_venue(
             venue_id=venue_info["venue_id"],
             name=venue_info.get("name", ""),
@@ -78,32 +78,13 @@ class PopularTimesScraper:
             google_place_id=venue_info.get("google_place_id")
         )
 
-    def get_baseline_curve(self, hour: int, day_of_week: int) -> int:
+    def get_baseline_curve(self, hour: int, day_of_week: int, venue_seed: int = 0) -> int:
         """
-        Calculate realistic expected normal busyness (0-100) based on hour of day and day of week.
-        Eateries have normal peak around 12:00-13:00 and 18:00-20:00, tapering sharply by 23:00.
+        Calculates expected normal busyness (0-100) via deterministic bimodal Gaussian mixture.
+        Zero RNG utilized.
         """
-        is_weekend = day_of_week in [4, 5]  # Friday, Saturday
-
-        if 0 <= hour < 5:
-            # Late night / early morning
-            return random.randint(3, 10)
-        elif 5 <= hour < 11:
-            # Morning
-            return random.randint(5, 18)
-        elif 11 <= hour < 14:
-            # Lunch rush
-            return random.randint(50, 75)
-        elif 14 <= hour < 17:
-            # Afternoon lull
-            return random.randint(20, 35)
-        elif 17 <= hour < 21:
-            # Dinner rush
-            return random.randint(55, 82) if is_weekend else random.randint(45, 70)
-        elif 21 <= hour < 24:
-            # Late night normal drop-off
-            return random.randint(15, 30) if is_weekend else random.randint(10, 22)
-        return 20
+        normal, _ = FootTrafficClient.calculate_deterministic_model(float(hour), day_of_week, venue_seed)
+        return normal
 
     def fetch_venue_busyness(
         self,
@@ -119,14 +100,18 @@ class PopularTimesScraper:
     ) -> BusynessReading:
         """
         Fetch normal and live busyness for a specific venue at current_time.
-        Executes hybrid Google Maps pinging with baseline fallback and surge priority.
+        Executes commercial Foot Traffic API queries with zero-RNG deterministic fallback.
         """
         now = current_time or datetime.now()
-        hour = now.hour
+        hour_float = now.hour + (now.minute / 60.0)
         day = now.weekday()
+        venue_seed = sum(ord(c) for c in venue_id)
 
-        normal = self.get_baseline_curve(hour, day)
-        data_source = "fallback_baseline"
+        # Baseline and live calculated deterministically (ZERO RNG)
+        det_normal, det_live = FootTrafficClient.calculate_deterministic_model(hour_float, day, venue_seed)
+        normal = det_normal
+        live = det_live
+        data_source = "deterministic_model"
 
         # 1. Check if an anomaly surge was injected on this ticker or venue (Scenario Priority)
         if ticker.upper() in self.simulated_surges:
@@ -136,7 +121,7 @@ class PopularTimesScraper:
             live = self.simulated_surges[venue_id]
             data_source = "simulated_surge"
         else:
-            # 2. Check if cached in Google Maps Client
+            # 2. Check if cached in Foot Traffic Client
             cached_reading = self.gmaps_client.get_cached_reading(venue_id) if self.gmaps_client.enabled else None
 
             # Optional immediate synchronous ping (e.g. for unit tests)
@@ -147,14 +132,16 @@ class PopularTimesScraper:
                     address=venue_address,
                     latitude=latitude,
                     longitude=longitude,
-                    google_place_id=google_place_id
+                    google_place_id=google_place_id,
+                    current_time=now
                 )
 
             if cached_reading and cached_reading.get("live_busyness") is not None:
                 live = cached_reading["live_busyness"]
-                data_source = cached_reading.get("source", "google_maps_live")
+                normal = cached_reading.get("normal_busyness", normal)
+                data_source = cached_reading.get("source", "commercial_api")
             else:
-                # Queue venue for background asynchronous Google Maps refresh if un-cached
+                # Queue venue for background asynchronous foot traffic refresh if un-cached
                 if venue_name and self.gmaps_client.enabled and not cached_reading:
                     self.queue_venue_for_refresh({
                         "venue_id": venue_id,
@@ -166,25 +153,11 @@ class PopularTimesScraper:
                         "google_place_id": google_place_id
                     })
 
-                # Calibrated baseline with natural oscillation (+/- 8%)
-                live_noise = random.randint(-8, 8)
-                live = max(5, min(100, normal + live_noise))
-                if cached_reading and cached_reading.get("source") == "google_maps_online":
-                    data_source = "google_maps_online"
-                elif cached_reading and cached_reading.get("source") == "google_maps_cache":
-                    data_source = "google_maps_cache"
-                else:
-                    data_source = "fallback_baseline"
-
-                # 5% chance of live data temporarily unavailable from Google
-                if random.random() < 0.05 and ticker.upper() not in self.simulated_surges:
-                    live = None
-
         return BusynessReading(
             venue_id=venue_id,
             timestamp=now,
             day_of_week=day,
-            hour_of_day=hour,
+            hour_of_day=now.hour,
             live_busyness=live,
             normal_busyness=normal,
             data_source=data_source

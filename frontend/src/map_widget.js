@@ -188,16 +188,19 @@ export class PizzaMeterMapManager {
 
         // Determine source badge styling and label
         let sourceClass = "";
-        let sourceLabel = "📊 QUANT BASELINE";
-        if (v.source === "google_maps_live") {
+        let sourceLabel = "📐 DETERMINISTIC MODEL";
+        if (v.source === "besttime_live" || v.source === "google_maps_live") {
           sourceClass = "live";
-          sourceLabel = "🛰️ GOOGLE MAPS LIVE";
-        } else if (v.source === "google_maps_cache") {
+          sourceLabel = "🛰️ BESTTIME LIVE";
+        } else if (v.source === "outscraper_live") {
+          sourceClass = "live";
+          sourceLabel = "🛰️ OUTSCRAPER LIVE";
+        } else if (v.source && v.source.includes("cache")) {
           sourceClass = "cached";
-          sourceLabel = "⚡ GMAPS CACHED";
-        } else if (v.source === "google_maps_online") {
+          sourceLabel = "⚡ TELEMETRY CACHED";
+        } else if (v.source === "deterministic_model") {
           sourceClass = "";
-          sourceLabel = "🌐 GMAPS CONNECTED";
+          sourceLabel = "📐 DETERMINISTIC MODEL";
         } else if (v.source === "simulated_surge") {
           sourceClass = "live";
           sourceLabel = "🚨 SURGE OVERRIDE";

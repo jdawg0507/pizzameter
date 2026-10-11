@@ -37,9 +37,10 @@ class PizzaMeterDaemon:
             consecutive_intervals_required=self.config.get("anomaly", {}).get("consecutive_intervals_required", 2),
             min_baseline_sigma=self.config.get("anomaly", {}).get("min_baseline_sigma", 7.5)
         )
+        foot_cfg = self.config.get("foot_traffic_api") or self.config.get("google_maps", {})
         self.scraper = PopularTimesScraper(
             db_path=str(self.db_path),
-            google_maps_config=self.config.get("google_maps", {})
+            google_maps_config=foot_cfg
         )
         self.fdc3_bridge = FDC3Bridge(
             host=self.config.get("finos", {}).get("ws_host", "127.0.0.1"),
