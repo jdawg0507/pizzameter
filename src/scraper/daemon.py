@@ -37,7 +37,10 @@ class PizzaMeterDaemon:
             consecutive_intervals_required=self.config.get("anomaly", {}).get("consecutive_intervals_required", 2),
             min_baseline_sigma=self.config.get("anomaly", {}).get("min_baseline_sigma", 7.5)
         )
-        self.scraper = PopularTimesScraper(db_path=str(self.db_path))
+        self.scraper = PopularTimesScraper(
+            db_path=str(self.db_path),
+            google_maps_config=self.config.get("google_maps", {})
+        )
         self.fdc3_bridge = FDC3Bridge(
             host=self.config.get("finos", {}).get("ws_host", "127.0.0.1"),
             port=self.config.get("finos", {}).get("ws_port", 8765)
@@ -72,7 +75,8 @@ class PizzaMeterDaemon:
             cursor.execute("""
                 SELECT v.venue_id, v.ticker, v.name, v.cuisine, v.distance_meters,
                        t.company_name, t.sector, t.hq_address, t.timezone,
-                       t.latitude, t.longitude, v.latitude, v.longitude, v.address
+                       t.latitude, t.longitude, v.latitude, v.longitude, v.address,
+                       v.google_place_id
                 FROM venues v
                 JOIN tickers t ON v.ticker = t.ticker
                 WHERE t.is_active = 1
@@ -93,7 +97,8 @@ class PizzaMeterDaemon:
                     "hq_lon": row[10],
                     "venue_lat": row[11],
                     "venue_lon": row[12],
-                    "venue_address": row[13]
+                    "venue_address": row[13],
+                    "google_place_id": row[14]
                 })
         return venues
 
@@ -120,7 +125,16 @@ class PizzaMeterDaemon:
         for ticker, ticker_venues in by_ticker.items():
             readings: List[BusynessReading] = []
             for v in ticker_venues:
-                reading = self.scraper.fetch_venue_busyness(v["venue_id"], ticker, now)
+                reading = self.scraper.fetch_venue_busyness(
+                    venue_id=v["venue_id"],
+                    ticker=ticker,
+                    current_time=now,
+                    venue_name=v.get("name"),
+                    venue_address=v.get("venue_address"),
+                    latitude=v.get("venue_lat"),
+                    longitude=v.get("venue_lon"),
+                    google_place_id=v.get("google_place_id")
+                )
                 # Compute single-venue Z-score
                 reading.z_score = self.anomaly_detector.compute_venue_z_score(
                     reading.live_busyness,
@@ -173,7 +187,9 @@ class PizzaMeterDaemon:
                         "longitude": v["venue_lon"],
                         "live": r.live_busyness,
                         "normal": r.normal_busyness,
-                        "z_score": r.z_score
+                        "z_score": r.z_score,
+                        "source": r.data_source,
+                        "google_place_id": v.get("google_place_id")
                     }
                     for v, r in zip(ticker_venues, readings)
                 ]
@@ -235,19 +251,45 @@ class PizzaMeterDaemon:
         except Exception as e:
             logger.error(f"Error saving alert to database: {e}")
 
+    async def _gmaps_worker(self):
+        """Asynchronously refreshes Google Maps telemetry in background without blocking the FDC3 event loop."""
+        rate_delay = self.config.get("google_maps", {}).get("rate_limit_delay_sec", 1.0)
+        logger.info(f"Google Maps background telemetry worker online (throttle: {rate_delay}s).")
+        while self.running:
+            try:
+                venue_to_refresh = self.scraper.get_next_venue_to_refresh()
+                if venue_to_refresh:
+                    # Run network HTTP request in thread pool so asyncio event loop never blocks
+                    await asyncio.to_thread(
+                        self.scraper.refresh_venue_gmaps,
+                        venue_to_refresh
+                    )
+                await asyncio.sleep(rate_delay)
+            except asyncio.CancelledError:
+                break
+            except Exception as e:
+                logger.debug(f"Error in Google Maps worker: {e}")
+                await asyncio.sleep(2.0)
+
     async def run(self):
         self.running = True
         logger.info("Initializing PizzaMeter Daemon...")
         # Start FDC3 WebSocket Server
         await self.fdc3_bridge.start()
 
+        # Launch Google Maps asynchronous background worker
+        worker_task = asyncio.create_task(self._gmaps_worker())
+
         logger.info(f"PizzaMeter Daemon online. Polling cycle every {self.poll_interval_sec}s.")
-        while self.running:
-            try:
-                await self.execute_poll_cycle()
-            except Exception as e:
-                logger.error(f"Error during poll cycle: {e}", exc_info=True)
-            await asyncio.sleep(self.poll_interval_sec)
+        try:
+            while self.running:
+                try:
+                    await self.execute_poll_cycle()
+                except Exception as e:
+                    logger.error(f"Error during poll cycle: {e}", exc_info=True)
+                await asyncio.sleep(self.poll_interval_sec)
+        finally:
+            worker_task.cancel()
 
 
 if __name__ == "__main__":

@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS historical_busyness (
     live_busyness INTEGER,
     normal_busyness INTEGER,
     z_score REAL,
+    data_source TEXT DEFAULT 'baseline',
     FOREIGN KEY(venue_id) REFERENCES venues(venue_id)
 );
 

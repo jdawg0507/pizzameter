@@ -46,6 +46,7 @@ class BusynessReading:
     live_busyness: Optional[int]
     normal_busyness: int
     z_score: Optional[float] = None
+    data_source: str = "baseline"
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)

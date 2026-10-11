@@ -11,6 +11,14 @@
     "max_venues_per_hq": 4,
     "request_timeout_sec": 30
   },
+  "google_maps": {
+    "enabled": true,
+    "api_key": null,
+    "cache_ttl_sec": 600,
+    "request_timeout_sec": 4.0,
+    "rate_limit_delay_sec": 0.5,
+    "max_batch_pings_per_cycle": 5
+  },
   "anomaly": {
     "min_z_score_trigger": 2.2,
     "consecutive_intervals_required": 2,

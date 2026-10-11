@@ -186,6 +186,27 @@ export class PizzaMeterMapManager {
 
         const vMarker = window.L.marker([v.latitude, v.longitude], { icon: pizzaIcon }).addTo(this.map);
 
+        // Determine source badge styling and label
+        let sourceClass = "";
+        let sourceLabel = "📊 QUANT BASELINE";
+        if (v.source === "google_maps_live") {
+          sourceClass = "live";
+          sourceLabel = "🛰️ GOOGLE MAPS LIVE";
+        } else if (v.source === "google_maps_cache") {
+          sourceClass = "cached";
+          sourceLabel = "⚡ GMAPS CACHED";
+        } else if (v.source === "google_maps_online") {
+          sourceClass = "";
+          sourceLabel = "🌐 GMAPS CONNECTED";
+        } else if (v.source === "simulated_surge") {
+          sourceClass = "live";
+          sourceLabel = "🚨 SURGE OVERRIDE";
+        }
+
+        const placeIdShort = (v.google_place_id && !v.google_place_id.startsWith("gplace_")) 
+          ? `ID: ${v.google_place_id.slice(0, 10)}…` 
+          : "";
+
         // Rich Tooltip
         vMarker.bindPopup(`
           <div class="map-popup-card">
@@ -207,6 +228,10 @@ export class PizzaMeterMapManager {
               </div>
             </div>
             <div class="popup-addr">${v.address || 'Local Corporate Perimeter'}</div>
+            <div class="popup-source-tag">
+              <span class="source-badge ${sourceClass}">${sourceLabel}</span>
+              ${placeIdShort ? `<span class="place-badge">${placeIdShort}</span>` : ''}
+            </div>
           </div>
         `, { maxWidth: 280, className: "dark-map-popup" });
 
