@@ -107,6 +107,12 @@ class FDC3Bridge:
                             "intent": intent,
                             "context": context
                         })
+                    elif action == "RUN_EOD_CHECK":
+                        logger.info("Executing EOD Outscraper 10-call scan triggered via client...")
+                        sim_ticker = data.get("ticker", "NVDA")
+                        from src.scraper.eod_checker import EODSurveillanceChecker
+                        checker = EODSurveillanceChecker(ws_uri=f"ws://{self.host}:{self.port}")
+                        asyncio.create_task(asyncio.to_thread(checker.run_eod_scan, sim_ticker))
                 except json.JSONDecodeError:
                     pass
         except Exception as e:

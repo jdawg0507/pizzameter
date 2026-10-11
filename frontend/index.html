@@ -86,15 +86,18 @@
         </div>
       </div>
 
-      <!-- Quick Interactive Spike Simulation -->
-      <div class="action-panel">
-        <span class="action-panel-label">&gt; SURGE_INJECTION:</span>
+      <!-- Quick Interactive Surveillance Actions -->
+      <div class="action-panel" style="flex-wrap: wrap; gap: 8px;">
+        <span class="action-panel-label">&gt; SURVEILLANCE_ACTION:</span>
         <div class="input-wrap">
           <span class="input-prefix">&gt;</span>
           <input type="text" id="input_target_ticker" class="action-input cyber-chamfer-sm" value="NVDA" placeholder="TICKER">
         </div>
-        <button id="btn_simulate_spike" class="btn-trigger cyber-chamfer-sm">
-          <span>⚡</span> INJECT PIZZA SURGE
+        <button id="btn_simulate_spike" class="btn-trigger cyber-chamfer-sm" title="Simulate a sudden late-night foot traffic surge">
+          <span>⚡</span> INJECT SPIKE
+        </button>
+        <button id="btn_eod_scan" class="btn-trigger cyber-chamfer-sm" style="background: rgba(0, 212, 255, 0.15); border-color: rgba(0, 212, 255, 0.4); color: var(--accent-cyan);" title="Execute 10-call End of Workday Outscraper Scan on Top 10 Mega-Cap HQs">
+          <span>📡</span> RUN EOD SCAN (TOP 10)
         </button>
       </div>
 

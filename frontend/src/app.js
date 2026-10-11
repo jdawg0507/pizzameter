@@ -41,6 +41,15 @@ class PizzaMeterDashboard {
       });
     }
 
+    // End-of-Workday Outscraper Scan button (Top 10 HQs / 10 API calls)
+    const eodBtn = document.getElementById("btn_eod_scan");
+    if (eodBtn) {
+      eodBtn.addEventListener("click", () => {
+        const sym = (tickerInput?.value || "NVDA").trim().toUpperCase();
+        this.runEODScan(sym);
+      });
+    }
+
     // Ticker blotter search filter
     if (searchFilter) {
       searchFilter.addEventListener("input", (e) => {
@@ -273,6 +282,19 @@ class PizzaMeterDashboard {
     };
     this.ws.send(JSON.stringify(payload));
     this.logEvent("INTENT_SENT", `Raised FDC3 ViewInstrument Intent for ${ticker} (Z=${zScore})`);
+  }
+
+  runEODScan(targetTicker = "NVDA") {
+    if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+      this.logEvent("ERROR", "WebSocket connection offline. Cannot dispatch EOD scan.", "log-alert");
+      return;
+    }
+    const payload = {
+      action: "RUN_EOD_CHECK",
+      ticker: targetTicker
+    };
+    this.ws.send(JSON.stringify(payload));
+    this.logEvent("EOD_SCAN", `Dispatched End-of-Workday Outscraper Scan (Top 10 HQs / 10 API calls, target: ${targetTicker})`, "log-intent");
   }
 
   logEvent(category, text, extraClass = "") {
